@@ -3,23 +3,23 @@
 # in grams for x minimolar (mM) y ml solution
 # The formula weight of NaCl is 58.443. Hence, for 1.0 liter 1M solution, 
 # we need 58.443 gram of NaCl.
-# Note: 1mM = 0.001M, 1ml=0.001liter
+# Note: 1mM = 0.001M, 1ml=0.001 liter
 
 ```{r}
 molar_solution <- function( x, y) {
   58.433 * (x/10^3) * (y/10^3)
 }
-molar_solution(100, 500)
-
-
+molar_solution(100, 500) #100mM 500mL NaCl
 ```
 
 
 ```{r}
-
 molar_solution2 <- function( conc, vol, FW) {
   FW * conc * vol /10^6
 }
+molar_solution2( 1, 100, 58.433)
+molar_solution2( 1, 100, 74.5513)
+
 ```
 
 
@@ -30,8 +30,9 @@ molar_solution3 <- function( conc, vol, formula) {
   FW = FWs[formula]
   FW * conc * vol / 10^6
 }
-
+molar_solution3( 100, 500, 'NaCl' )
 ```
+
 
 ```{r}
 
