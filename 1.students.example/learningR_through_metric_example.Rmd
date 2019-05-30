@@ -1,9 +1,11 @@
 ---
-layout: topic
 title: "Analysis of survey data for metrics, scientific literacy and attitude"
 author: "H Qin"
 date: "5/30/2019"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
+layout: topic
 ---
 
 ------------
@@ -53,25 +55,51 @@ Overview of the data
 ```{r}
 summary(tb)
 ```
+Exercise: Find out help information of summary(). 
 
-```{r}
+```{r look-at-data}
 head(tb)
 ```
 
+Look at first 2 rows of columns 2 and 3
+```{r}
+head( tb[, 2:3], n=2)
+```
 
 # The survey provide results for three types of questions
 1) Metric proficiency
 2) Scientific literacy
 3) Attitude toward science
 
-#Is gender associated with metric usage? 
+What does the 'country' coded for? 
+
+```{r}
+table(tb$country)
+```
+So, USA is 1, other countries are coded as zeros. 
+
+# Is gender associated with metric proficiency? 
 
 ```{r}
 boxplot( tb$metric ~ tb$gender, ylab="metric proficiency" )
+```
 
+How to pick a subset of data? 
+Pick "Male" metric proficiency data? 
+```{r}
+tb$gender=='Male'
+tb$metric[tb$gender=='Male']
+tb$metric[tb$gender=='Female']
+```
+
+What is t-test? 
+
+```{r}
 t.test(tb$metric[tb$gender=='Female'], tb$metric[tb$gender=='Male'])
 #Does this mean that females are more uncomfortable with metric usage?
 ```
+
+# What does p-value mean? 
 
 ```{r}
 # Female participants tend to be younger
@@ -82,16 +110,17 @@ table( tb$gender, tb$degree )
 
 boxplot( tb$metric ~ tb$degree, ylab='metric proficiency')
 
-# Multiple regression
-m1 = lm( tb$metric ~ tb$degree )
+m1 = lm( tb$metric ~ tb$gender )
 summary(m1)
 
 m2 = lm( tb$metric ~ tb$age )
 summary(m2)
 
-m3 = lm( tb$metric~ tb$gender + tb$degree + tb$age )
+m3 = lm( tb$metric ~ tb$degree )
 summary(m3)
 
+m4 = lm( tb$metric~ tb$gender + tb$age + tb$degree )
+summary(m4)
 ```
 
 
