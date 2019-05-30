@@ -9,3 +9,7 @@ Or an H.323/SIP room system:
     Meeting ID: 414 929 531
 
     SIP: 414929531@zoomcrc.com
+
+
+20190530 Notes:
+ GitHub clients require github username, merge and sync, which are too much for the R-bootcamp. So, students should donwload the ZIP files. 
