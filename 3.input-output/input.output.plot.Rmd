@@ -1,4 +1,5 @@
 
+# Read a data set of yeast growth curves
 
 ```{r}
 rm(list=ls()) #clearn my workspace
@@ -20,6 +21,8 @@ tb = read.csv("Carlson_Yeast.csv");
  plot( Amount ~ Hours, data=tb, type="b",
     main="Carlson growth curve" );
 ```
+
+# Multiple data sets plotted in the same figure 
 
 ```{r}
 ##### the second data set, multiple plots
@@ -43,6 +46,12 @@ tb = read.csv("Carlson_Yeast.csv");
 ```
 
 ```{r}
+x = 1:30
+y = 1:30
+plot( y ~x, pch=x)
+```
+
+```{r}
 ##### plot sunflower seed data
  sunflower = read.csv("SunflowerSeedData.csv");
 
@@ -52,16 +61,16 @@ tb = read.csv("Carlson_Yeast.csv");
        )
 ```
 
+# Output to csv file 
+
 ```{r}
 
- 
  x= seq(1:30)
  y= x^2;
  write.csv(x, "x.csv", row.names=F)
  write.csv(y, "y.csv", row.names=F)
  output = cbind(x, y)
- write.csv(output, "xy.csv", row.names=F)
-  
+ write.csv(output, "xy-20190530.csv", row.names=F)
  plot( y ~ x, pch=x )
  
  

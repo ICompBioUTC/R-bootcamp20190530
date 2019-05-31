@@ -8,6 +8,7 @@ output: html_document
 There are three key dataset in Fraser paper: evolutionary distance, protein interaction, and fitness. First, we need load the 3 data sets into R. Second, we need to do some 'informatics' to merge the three datasets. 
 
 ```{r}
+rm(list=ls())
 #evolutionary rates
 Kdata = read.csv( "Sce.Spa.KaKs.csv");
 
@@ -17,7 +18,6 @@ pairs = read.csv("pairs.csv");
 # this is the growth fitness data
 fitness = read.csv("growth.fitness.hom.csv");
 fitness$orf = as.character( fitness$orf ); 
-
 ```
 
 now study the data tables with 'head' and 'str'
@@ -125,6 +125,10 @@ abline( m2, col="red")
 
 
 ```
+
+
+# video on match fuction
+ https://youtu.be/vJaEE_kHhCw
 
 #Figure 2
 

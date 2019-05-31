@@ -96,8 +96,9 @@ even_total = function( x ) {
   sum(x);
  }
 
-x = c( 1,2,3,4 );
+x = c( 1,2,3,4, 0, -2, -4 );
 u = even_total( x );
+print(u)
 
 # x will be changed if the following line is run.
 x = take_even(x)
