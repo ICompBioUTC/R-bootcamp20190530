@@ -23,51 +23,9 @@ pairs$ORF2 = as.character( pairs$ORF2 );
 #input growth fitness
 fit = read.csv("growth.fitness.hom.csv");
 fit$orf = as.character( fit$orf ); 
-
-#calculate connecting degrees
-ids = c(pairs$ORF1, pairs$ORF2);
-degree = table( ids );
-
-# summarize the results in a dataframe 'net'
-net = data.frame(degree);
-str(net);
-net$id = as.character( net$id);
-
 ```
 
-```{r}
-#double check
-intersect( net$id, Kdata$orfname) [1:10];
-
-#match data and net
-Kdata$degree = net$Freq[match(Kdata$orfname, net$id )]
-
-#visual examination to double the merged results
-head(Kdata)
-net[net$id=='YAL005C', ]
-net[net$id=='YAL012W', ]
- 
-# find out correlation bw degree and Omega, Ka, Ks
-summary(lm(Kdata$Ka ~ Kdata$degree))
-
-#match data and fitness
-Kdata$YPD = fit$YPD[match(Kdata$orfname, fit$orf)] 
-
-#visual check the merge results
-fit[fit$orf=='YAL007C',]
-
-
-summary(lm(Kdata$Ka ~ Kdata$YPD))
-summary(lm(Kdata$degree ~ Kdata$YPD))
-summary(lm( log(Kdata$degree) ~ Kdata$YPD))#normalization
-
-#multiple regression
-summary(lm(Kdata$Ka ~ Kdata$YPD + Kdata$degree ))
-
-```
-
-
-# Fig 3A. Use permutation to calculate p-value of Ka difference
+# Fig 3B. Use permutation to calculate p-value of Ka difference
 Use permutation to calculate p-value of Ka difference in interacting pairs;
 This is equivalent to Fig 3A in Fraser 02, Science
 
