@@ -23,6 +23,7 @@ pairs$ORF2 = as.character( pairs$ORF2 );
 #input growth fitness
 fit = read.csv("growth.fitness.hom.csv");
 fit$orf = as.character( fit$orf ); 
+# YPD is the fitness data that can be used for Figure 3B. 
 
 ```
 
