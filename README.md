@@ -8,3 +8,6 @@ Some students have trouble with Rmd and markdown files. Some students are confus
 
 Tucker Carlson video: 
 https://youtu.be/1cPeZLCVWTw
+
+ABC news
+https://youtu.be/MJd0aBQuTYQ
