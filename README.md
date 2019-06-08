@@ -16,3 +16,6 @@ Or an H.323/SIP room system:
 
 Wireless download take long itme. Should ask students to install R, Rstudio before bootcamps, or have files on flashdrives, or a shared GoogleDrive. Projector did not work at first. We have to use Zoom initially. Github sync is also a distraction for basic R learning, and should be avoided in the R bootcamps.
 Some students have trouble with Rmd and markdown files. Some students are confused by knitr and console running. 
+
+Tucker Carlson video: 
+https://youtu.be/1cPeZLCVWTw
